@@ -2,8 +2,6 @@
 %27 October 2021
 %Adit Kurniawan
 
-
-
 function y = fading(len, fd, T)
 N = 34;
 N0 = (N/2 - 1)/2;
