@@ -13,7 +13,7 @@ for i=1:length(SNRdB)
     count = 0;
     for k=1:numbersimulation
          h = fading2(numberbits, 30, 1/128000);
-         n = 1/sqrt(2)*[randn(1,numberbits) + j*randn(1,numberbits)];
+         n = 1/sqrt(2)*[randn(1,numberbits) + 1i*randn(1,numberbits)];
          fadingchannel = bpsk.*h+10^(-SNRdB(i)/20)*n;
          %receiver
          y=fadingchannel./h;
@@ -21,7 +21,6 @@ for i=1:length(SNRdB)
          datarx = real(y)>0;
          %menghitung error
          error= biterr(datatx,datarx);
-         BERsimi=error/numberbits;
          BERsim=BERsim+error/numberbits;
          count = count+1;
     end
